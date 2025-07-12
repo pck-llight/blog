@@ -1,60 +1,98 @@
 import styled from "styled-components";
-import GenerateIcon from '../assets/generate.svg?react';
-import MenuDownIcon from '../assets/menu_down.svg?react';
-import TextListIcon from '../assets/list.svg?react';
-import TitleIcon from '../assets/title.svg?react';
+import GenerateIcon from "../assets/generate.svg?react";
+import MenuDownIcon from "../assets/menu_down.svg?react";
+import TextListIcon from "../assets/list.svg?react";
+import TitleIcon from "../assets/title.svg?react";
 import TextEffectButton from "./toolBarModals/TextEffectButton.tsx";
 import { useState } from "react";
 
 export default function ToolBar() {
-  const [TextEffectionList, setTextEffectList] = useState<boolean[]>([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ]);
-  const [color, setColor] = useState<string>("#000000");
+	const [TextEffectionList, setTextEffectList] = useState<boolean[]>([
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+	]);
+	const [color, setColor] = useState<string>("#000000");
 
-  function handleTextEffectToggle(index: number) {
-    setTextEffectList((prev) => {
-      const newList = [...prev];
-      newList[index] = !newList[index];
-      return newList;
-    });
-  }
+	function handleTextEffectToggle(index: number) {
+		setTextEffectList((prev) => {
+			const newList = [...prev];
+			newList[index] = !newList[index];
+			return newList;
+		});
+	}
 
-  return (
-    <Wrapper>
-      <GenerateButton>
-        <GenerateIcon />
-        <GenerateButtonText>Generate Contents</GenerateButtonText>
-      </GenerateButton>
-      <Line />
-      <TextTypeConTainer>
-        <TextListButton>
-          <TextListIcon />
-          <MenuDownIcon />
-        </TextListButton>
-        <TextTypeButton>
-          <TitleIcon />
-          본문 텍스트
-          <MenuDownIcon />
-        </TextTypeButton>
-      </TextTypeConTainer>
-      <Line />
-      <TextEffectButtonList>
-        <TextEffectButton buttonType="bold" isActive={TextEffectionList[0]} onClick={()=>{handleTextEffectToggle(0)}}/>
-        <TextEffectButton buttonType="italic" isActive={TextEffectionList[1]} onClick={()=>{handleTextEffectToggle(1)}} />
-        <TextEffectButton buttonType="underline" isActive={TextEffectionList[2]} onClick={()=>{handleTextEffectToggle(2)}} />
-        <TextEffectButton buttonType="strikethrough" isActive={TextEffectionList[3]} onClick={()=>{handleTextEffectToggle(3)}} />
-        <TextEffectButton buttonType="highlight" isActive={TextEffectionList[4]} onClick={()=>{handleTextEffectToggle(4)}} hilightColor={'278594'}/>
-        <TextEffectButton buttonType="code" isActive={TextEffectionList[5]} onClick={()=>{handleTextEffectToggle(5)}} />
-        <ColorPickerButton color={color}/>{/* TODO: 클릭하면 색상 선택 모달 열기 */}
-      </TextEffectButtonList>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<GenerateButton>
+				<GenerateIcon />
+				<GenerateButtonText>Generate Contents</GenerateButtonText>
+			</GenerateButton>
+			<Line />
+			<TextTypeConTainer>
+				<TextListButton>
+					<TextListIcon />
+					<MenuDownIcon />
+				</TextListButton>
+				<TextTypeButton>
+					<TitleIcon />
+					본문 텍스트
+					<MenuDownIcon />
+				</TextTypeButton>
+			</TextTypeConTainer>
+			<Line />
+			<TextEffectButtonList>
+				<TextEffectButton
+					buttonType="bold"
+					isActive={TextEffectionList[0]}
+					onClick={() => {
+						handleTextEffectToggle(0);
+					}}
+				/>
+				<TextEffectButton
+					buttonType="italic"
+					isActive={TextEffectionList[1]}
+					onClick={() => {
+						handleTextEffectToggle(1);
+					}}
+				/>
+				<TextEffectButton
+					buttonType="underline"
+					isActive={TextEffectionList[2]}
+					onClick={() => {
+						handleTextEffectToggle(2);
+					}}
+				/>
+				<TextEffectButton
+					buttonType="strikethrough"
+					isActive={TextEffectionList[3]}
+					onClick={() => {
+						handleTextEffectToggle(3);
+					}}
+				/>
+				<TextEffectButton
+					buttonType="highlight"
+					isActive={TextEffectionList[4]}
+					onClick={() => {
+						handleTextEffectToggle(4);
+					}}
+					hilightColor={"278594"}
+				/>
+				<TextEffectButton
+					buttonType="code"
+					isActive={TextEffectionList[5]}
+					onClick={() => {
+						handleTextEffectToggle(5);
+					}}
+				/>
+				<ColorPickerButton color={color} />
+				{/* TODO: 클릭하면 색상 선택 모달 열기 */}
+			</TextEffectButtonList>
+		</Wrapper>
+	);
 }
 
 const Wrapper = styled.div`
@@ -63,14 +101,17 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 3px;
   border-radius: 9px;
-  border: 0.5px solid rgba(18 ,25, 3d, 0.8);
-  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+  border: 0.5px solid rgba(42, 50, 63, 0.08);
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.10);
 `;
 
 const Line = styled.div`
   width: 1px;
   height: 23px;
   background: rgba(0, 0, 0, 0.10);
+  border-radius: 9px;
+  border: 0.5px solid rgba(42, 50, 63, 0.08);
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const GenerateButton = styled.div`
@@ -83,7 +124,7 @@ const GenerateButton = styled.div`
   border-radius: 6px;
   background: #F8F5FF;
   margin-right: 8px;
-`
+`;
 const GenerateButtonText = styled.div`
   color: #774AF8;
   font-family: 'buttonFont';
@@ -97,7 +138,7 @@ const TextTypeConTainer = styled.div`
   display: flex;
   align-items: center;
   gap: 3px;
-`
+`;
 
 const TextListButton = styled.div`
   display: flex;
@@ -105,7 +146,7 @@ const TextListButton = styled.div`
   padding: 0px 6px;
   align-items: center;
   gap: 4px;
-`
+`;
 const TextTypeButton = styled.div`
   display: flex;
   height: 32px;
@@ -128,7 +169,7 @@ const TextEffectButtonList = styled.div`
   padding: 0px 11px;
   align-items: center;
   gap: 3px;
-`
+`;
 const ColorPickerButton = styled.div`
   width: 20px;
   height: 20px;

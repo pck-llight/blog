@@ -43,57 +43,60 @@ export default function NewContents() {
 }
 
 const Wrapper = styled.div`
-    display: flex;
-    width: 212px;
-    max-height: 400px;
-    padding: 10px 7px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 12px;
-    border: 1px solid #E9E9E9;
-    background: #FFF;
-    box-shadow: 0px 2px 10px 0px rgba(24, 37, 61, 0.08);
+	display: flex;
+	width: 212px;
+	max-height: 400px;
+	padding: 10px 7px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	border-radius: 12px;
+	border: 1px solid #E9E9E9;
+	background: #FFF;
+	box-shadow: 0px 2px 10px 0px rgba(24, 37, 61, 0.08);
 `;
 const Title = styled.div`
-    display: flex;
-    padding: 5px 7px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    color: #A0A0A0;
-    font-family: 'buttonFont';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px; /* 128.571% */
-    letter-spacing: -0.28px;
+	display: flex;
+	padding: 5px 7px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: #A0A0A0;
+	font-family: 'buttonFont';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px; /* 128.571% */
+	letter-spacing: -0.28px;
 `;
-const ButtonContainer = styled.div`
-    display: flex;
-    height: 28px;
+const ButtonContainer = styled.button`
+	display: flex;
+	height: 28px;
 	padding: 0 6px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
-    `;
+	justify-content: space-between;
+	align-items: center;
+	align-self: stretch;
+	background: #fff;
+	border: none;
+`;
 const TextStyleButton = styled.div`
-    display: flex;
-    height: 28px;
-    gap: 4px;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
+	display: flex;
+	height: 28px;
+	gap: 4px;
+	justify-content: space-between;
+	align-items: center;
+	align-self: stretch;
 `;
 const TextStyleButtonElement = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: #000;
-    font-family: 'buttonFont';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px; /* 128.571% */
-    letter-spacing: -0.28px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 0px 4px;
+	color: #000;
+	font-family: 'buttonFont';
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px; /* 128.571% */
+	letter-spacing: -0.28px;
 `;
