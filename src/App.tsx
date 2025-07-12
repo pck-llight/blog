@@ -1,34 +1,36 @@
 import './App.css';
-import TextBlock from './components/TextBlock';
 import styled from 'styled-components';
+import './assets/fonts/font.css';
 import { useState } from 'react';
+import ToolBar from './components/toolBar/ToolBar';
 
 function App() {
-  const [contents, setContents] = useState<string[]>(['']);
-  
+  const [editorContent, setEditorContent] = useState<any[]>([
+    {
+      type: 'text',
+      content: ''
+    },
+  ]);
+
   return (
     <Screen >
-      {contents.map((content, idx) => (
-        <TextBlock
-          key={idx}
-          idx={idx}
-          contents={contents}
-          setContents={setContents}
-        />
-      ))}
+      {/* {editorContent.map((item, index) => (
+        <BlockItem type={item.type} content={item.content} key={index}/>
+      ))} */}
+      <ToolBar />
     </Screen>
   );
-  
+
 }
 
 const Screen = styled.div`
   width: 100%;
-  /* height: 100dvh; */
+  height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+  
 `;
 
 export default App;
