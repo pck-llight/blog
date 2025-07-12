@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import GenerateIcon from '../../assets/gnerate.svg?react';
-import MenuDownIcon from '../../assets/menu_down.svg?react';
-import TextListIcon from '../../assets/list.svg?react';
-import TitleIcon from '../../assets/title.svg?react';
-import TextEffectButton from "./TextEffectButton";
+import GenerateIcon from '../assets/generate.svg?react';
+import MenuDownIcon from '../assets/menu_down.svg?react';
+import TextListIcon from '../assets/list.svg?react';
+import TitleIcon from '../assets/title.svg?react';
+import TextEffectButton from "./toolBarModals/TextEffectButton.tsx";
 import { useState } from "react";
-import ColorPicker from "./ColorPicker.tsx";
 
 export default function ToolBar() {
   const [TextEffectionList, setTextEffectList] = useState<boolean[]>([
@@ -16,6 +15,7 @@ export default function ToolBar() {
     false,
     false
   ]);
+  const [color, setColor] = useState<string>("#000000");
 
   function handleTextEffectToggle(index: number) {
     setTextEffectList((prev) => {
@@ -51,7 +51,7 @@ export default function ToolBar() {
         <TextEffectButton buttonType="strikethrough" isActive={TextEffectionList[3]} onClick={()=>{handleTextEffectToggle(3)}} />
         <TextEffectButton buttonType="highlight" isActive={TextEffectionList[4]} onClick={()=>{handleTextEffectToggle(4)}} hilightColor={'278594'}/>
         <TextEffectButton buttonType="code" isActive={TextEffectionList[5]} onClick={()=>{handleTextEffectToggle(5)}} />
-        <ColorPicker/>
+        <ColorPickerButton color={color}/>{/* TODO: 클릭하면 색상 선택 모달 열기 */}
       </TextEffectButtonList>
     </Wrapper>
   );
@@ -129,3 +129,9 @@ const TextEffectButtonList = styled.div`
   align-items: center;
   gap: 3px;
 `
+const ColorPickerButton = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: ${(props) => props.color || "#000000"};
+`;
